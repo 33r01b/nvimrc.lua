@@ -41,3 +41,7 @@ map('n', '<Tab>', ':e#<CR>', {noremap = true, silent = true})
 
 -- Spell toggle
 map('n', '<F8>', ':setlocal spell! spelllang=en,ru<CR>', {noremap = true, silent = true})
+
+-- Float terminal
+map('n', '<Leader>t', ':FloatermNew<CR>', {noremap = true, silent = true})
+map('n', '<Leader>T', ':FloatermNew! cd %:p:h<CR>', {noremap = true, silent = true})
