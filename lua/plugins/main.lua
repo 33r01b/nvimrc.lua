@@ -14,8 +14,18 @@ return require('packer').startup(function(use)
         as = "catppuccin"
     })
 
+    -- statusline
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
+
+    -- filebrowser
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {'nvim-tree/nvim-web-devicons', opt = true}
+    }
+
+    -- terminal
+    use 'voldikss/vim-floaterm'
 end)
