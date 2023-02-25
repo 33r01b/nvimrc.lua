@@ -1,4 +1,3 @@
-local opt = vim.opt
 local g = vim.g
 
 g.nocompatible = true
@@ -6,16 +5,19 @@ g.nocp = true
 g.nospell = true
 g.floaterm_autclose = 2
 
+local opt = vim.opt
+
 opt.ai = true
 opt.autoindent = true
 opt.backspace = '2'
 opt.backupdir = os.getenv('HOME') .. '/.config/nvim/.backup/'
 opt.cin = true
 opt.cindent = true
-opt.clipboard =  'unnamedplus'
+opt.clipboard:append  'unnamedplus'
 opt.colorcolumn = '120'
 opt.completeopt = 'menu,menuone,noselect'
 opt.cursorline = true
+opt.diffopt:append 'iwhite' -- Ignore whitespace whilst diffing
 opt.directory = os.getenv('HOME') .. '/.config/nvim/.swp/'
 opt.encoding = 'utf8'
 opt.expandtab = true
@@ -34,6 +36,7 @@ opt.lazyredraw = true
 opt.listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣"
 opt.mousehide = true
 opt.number = true
+opt.path:append '**'
 opt.re = 1
 opt.regexpengine = 1
 opt.ruler = true
@@ -49,6 +52,8 @@ opt.spelllang = 'en,ru'
 opt.spellsuggest = 'best,9'
 opt.splitbelow = true
 opt.splitright = true
+opt.switchbuf:append 'newtab'
+opt.switchbuf:append 'usetab'
 opt.synmaxcol = 1500
 opt.tabstop = 4
 opt.termguicolors = true
@@ -57,11 +62,6 @@ opt.ttimeoutlen = 0
 opt.ttyfast = true
 opt.undodir = os.getenv('HOME') .. '/.config/nvim/.undo/'
 opt.updatetime = 100
-
-table.insert(opt.diffopt, 'iwhite') -- Ignore whitespace whilst diffing
-table.insert(opt.path, '**')
-table.insert(opt.switchbuf, 'usetab')
-table.insert(opt.switchbuf, 'newtab')
 
 for k,v in pairs(opt.ssop) do
     -- do not store folds

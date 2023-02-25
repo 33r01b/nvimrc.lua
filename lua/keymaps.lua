@@ -20,6 +20,11 @@ map('n', '<S-h>', '4h', {noremap = true})
 map('n', '<S-j>', '4j', {noremap = true})
 map('n', '<S-k>', '4k', {noremap = true})
 
+map('v', '<S-l>', '4l', {noremap = true})
+map('v', '<S-h>', '4h', {noremap = true})
+map('v', '<S-j>', '4j', {noremap = true})
+map('v', '<S-k>', '4k', {noremap = true})
+
 -- Fast windows jump
 map('n', '<C-l>', '<C-w>l', {noremap = true})
 map('n', '<C-h>', '<C-w>h', {noremap = true})
