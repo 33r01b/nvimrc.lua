@@ -42,4 +42,23 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {'nvim-lua/plenary.nvim'}
     }
+
+    -- git
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
+    }
+    require('gitsigns').setup()
+
+    -- easy motion
+    use 'ggandor/lightspeed.nvim'
+
+    -- highlights 
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use 'nvim-treesitter/nvim-treesitter-refactor'
 end)
