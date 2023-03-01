@@ -50,3 +50,17 @@ map('n', '<F8>', ':setlocal spell! spelllang=en,ru<CR>', {noremap = true, silent
 -- Float terminal
 map('n', '<Leader>t', ':FloatermNew<CR>', {noremap = true, silent = true})
 map('n', '<Leader>T', ':FloatermNew! cd %:p:h<CR>', {noremap = true, silent = true})
+
+
+-- Telescope
+map('n', ';', ':Telescope find_files find_command=rg,--no-ignore,--hidden,--files,--glob=!.git/<CR>', {noremap = true})
+map('n', '`', ':Telescope buffers<CR>', {noremap = true})
+map('n', '<leader>f', ':Telescope live_grep<CR>', {noremap = true})
+map('v', '<leader>f', '"zy:Telescope live_grep default_text=<C-r>z<cr>', {noremap = true})
+map('n', '<leader>fh', ':Telescope help_tags<CR>', {noremap = true})
+
+-- LSP + Telescope
+map('n', 'gr', ':lua require("telescope.builtin").lsp_references{}<CR>', {noremap = true, silent = true})
+map('n', 'gi', ':lua require("telescope.builtin").lsp_implementations{}<CR>', {noremap = true, silent = true})
+map('n', 'gd', ':lua require("telescope.builtin").lsp_definitions{}<CR>', {noremap = true, silent = true})
+map('n', 'gt', ':lua require("telescope.builtin").lsp_type_definitions{}<CR>', {noremap = true, silent = true})

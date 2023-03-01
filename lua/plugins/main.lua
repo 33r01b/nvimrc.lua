@@ -28,4 +28,18 @@ return require('packer').startup(function(use)
 
     -- terminal
     use 'voldikss/vim-floaterm'
+
+    -- closes brackets
+    use "windwp/nvim-autopairs"
+    require("nvim-autopairs").setup()
+
+    -- comments
+    use "terrortylor/nvim-comment"
+    require('nvim_comment').setup()
+
+    -- fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
 end)
