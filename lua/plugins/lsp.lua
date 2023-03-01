@@ -61,9 +61,7 @@ cmp.setup({
     })
 })
 
--- Setup language servers managed by nvim-lsp-installer
 -- https://github.com/williamboman/nvim-lsp-installer#setup
-local servers = require('servers')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('nvim-lsp-installer').on_server_ready(function(server)
     local opts = {
@@ -108,10 +106,6 @@ require('nvim-lsp-installer').on_server_ready(function(server)
                 diagnostics = { globals = { 'vim' } }
             }
         }
-    end
-
-    if servers[server.name] ~= nil then
-        opts = vim.tbl_deep_extend('force', opts, servers[server.name])
     end
 
     server:setup(opts)
