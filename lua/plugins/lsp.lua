@@ -63,18 +63,6 @@ cmp.setup({
 
 require("mason").setup()
 
--- https://github.com/williamboman/nvim-lsp-installer#setup
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local util = require "lspconfig.util"
-util.default_config = vim.tbl_extend(
-    "force",
-    util.default_config,
-    {
-        autostart = false,
-        capabilities = { my_capabilities = "here" }
-    }
-)
-
 local lspconfig = require("lspconfig")
 
 lspconfig.intelephense.setup({
@@ -87,12 +75,11 @@ lspconfig.intelephense.setup({
 })
 
 lspconfig.gopls.setup({
-    experimentalPostfixCompletions = true,
     analyses = {
         unusedparams = true,
-        shadow = true,
     },
     staticcheck = true,
+    gofumpt = true,
 })
 
 lspconfig.lua_ls.setup{}
