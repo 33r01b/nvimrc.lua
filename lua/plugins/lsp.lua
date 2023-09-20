@@ -61,52 +61,39 @@ cmp.setup({
     })
 })
 
+require("mason").setup()
+
 -- https://github.com/williamboman/nvim-lsp-installer#setup
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('nvim-lsp-installer').on_server_ready(function(server)
-    local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = { debounce_text_changes = 150 },
+local util = require "lspconfig.util"
+util.default_config = vim.tbl_extend(
+    "force",
+    util.default_config,
+    {
+        autostart = false,
+        capabilities = { my_capabilities = "here" }
     }
+)
 
-    if server.name == "gopls" then
-        opts.settings = {
-            gopls = {
-                experimentalPostfixCompletions = true,
-                analyses = {
-                    unusedparams = true,
-                    shadow = true,
-                },
-                staticcheck = true,
-            },
-        }
-    end
+local lspconfig = require("lspconfig")
 
-    if server.name == "intelephense" then
-        opts.settings = {
-            intelephense = {
-                files = {
-                    maxSize = 10000000;
-                },
-                environment = {
-                    phpVersion = '8.1'
-                }
-            }
-        }
+lspconfig.intelephense.setup({
+    files = {
+        maxSize = 10000000;
+    },
+    environment = {
+        phpVersion = '8.2'
+    }
+})
 
-        opts.init_options = {
-            cacheClear = true
-        }
-    end
+lspconfig.gopls.setup({
+    experimentalPostfixCompletions = true,
+    analyses = {
+        unusedparams = true,
+        shadow = true,
+    },
+    staticcheck = true,
+})
 
-    if server.name == 'sumneko_lua' then
-        opts.settings = {
-            Lua = {
-                diagnostics = { globals = { 'vim' } }
-            }
-        }
-    end
+lspconfig.lua_ls.setup{}
 
-    server:setup(opts)
-end)
