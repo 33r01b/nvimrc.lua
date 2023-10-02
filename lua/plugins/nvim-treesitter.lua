@@ -6,7 +6,6 @@ require('nvim-treesitter.configs').setup({
         "dockerfile",
         "go",
         "graphql",
-        "help",
         "json",
         "lua",
         "php",
