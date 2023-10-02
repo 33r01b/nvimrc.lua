@@ -83,4 +83,5 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.lua_ls.setup{}
+lspconfig.clangd.setup{}
 
