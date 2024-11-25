@@ -63,8 +63,11 @@ map('n', 'gr', ':lua require("telescope.builtin").lsp_references{}<CR>', {norema
 map('n', 'gi', ':lua require("telescope.builtin").lsp_implementations{}<CR>', {noremap = true, silent = true})
 map('n', 'gd', ':lua require("telescope.builtin").lsp_definitions{}<CR>', {noremap = true, silent = true})
 map('n', 'gt', ':lua require("telescope.builtin").lsp_type_definitions{}<CR>', {noremap = true, silent = true})
+map('n', 'Q', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+map('n', 'gs', ':lua vim.lsp.buf.signature_help()<CR>', {noremap = true, silent = true})
+map('n', '<F6>', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
 
 --- NvimTree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 map('n', '<C-o>', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', {noremap = true, silent = true})
+map('n', '<leader>R', ':NvimTreeRefresh<CR>', {noremap = true, silent = true})

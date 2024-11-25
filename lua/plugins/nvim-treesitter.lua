@@ -13,7 +13,10 @@ require('nvim-treesitter.configs').setup({
         "sql",
         "twig",
         "vim",
-        "yaml"
+        "latex",
+        "yaml",
+        "markdown",
+        "markdown_inline"
     },
     refactor = {
         highlight_definitions = {enable = true},
