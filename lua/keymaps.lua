@@ -52,7 +52,7 @@ map('n', '<Leader>t', ':FloatermNew<CR>', {noremap = true, silent = true})
 map('n', '<Leader>T', ':FloatermNew! cd %:p:h<CR>', {noremap = true, silent = true})
 
 -- Telescope
-map('n', ';', ':Telescope find_files find_command=rg,--no-ignore,--hidden,--files,--glob=!.git/<CR>', {noremap = true})
+map('n', ';', ':Telescope find_files<CR>', {noremap = true})
 map('n', '`', ':Telescope buffers<CR>', {noremap = true})
 map('n', '<leader>f', ':Telescope live_grep<CR>', {noremap = true})
 map('v', '<leader>f', '"zy:Telescope live_grep default_text=<C-r>z<cr>', {noremap = true})
